@@ -1,0 +1,24 @@
+{
+    "root": true,
+    "preset": "default",
+    "plugins": [
+        "esformatter-jsx",
+        "esformatter-quotes",
+        "esformatter-semicolons",
+        "esformatter-remove-trailing-commas"
+    ],
+    "quotes": {
+        "type": "single"
+    },
+    "jsx": {
+        "formatJSX": true,
+        "attrsOnSameLineAsTag": false,
+        "maxAttrsOnTag": 3,
+        "firstAttributeOnSameLine": true,
+        "formatJSXExpressions": true, 
+        "JSXExpressionsSingleLine": true, 
+        "alignWithFirstAttribute": false, 
+        "spaceInJSXExpressionContainers": " ", 
+        "removeSpaceBeforeClosingJSX": false
+    }
+}
