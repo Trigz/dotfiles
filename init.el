@@ -3,6 +3,7 @@
 (menu-bar-mode -1)
 (setq show-paren-delay 0)
 (show-paren-mode 1)
+(setq py-python-command "/usr/local/bin/python3")
 
 (add-hook 'before-save-hook 'whitespace-cleanup)
 
@@ -11,7 +12,7 @@
 			  color-theme-solarized rust-mode racer
 			  nlinum dired+ haskell-mode ghc company-ghc
 			  csharp-mode omnisharp projectile helm-projectile
-			  flycheck-rust))
+			  flycheck-rust jedi-core company-jedi))
 
 (setq package-archives '(("elpa" . "http://tromey.com/elpa/")
 			 ("gnu" . "http://elpa.gnu.org/packages/")
@@ -109,6 +110,12 @@
 (add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
 (define-key rust-mode-map (kbd "TAB") #'company-indent-or-complete-common)
 (setq rust-format-on-save t)
+
+;; python
+(require 'company-jedi)
+(add-hook 'python-mode-hook 'jedi:setup)
+(add-hook 'python-mode-hook 'company-mode)
+(add-to-list 'company-backends 'company-jedi)
 
 ;; haskell
 (add-hook 'haskell-mode-hook (lambda () (ghc-init)))
